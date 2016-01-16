@@ -38,8 +38,8 @@
                 <tr ng-repeat="list in listings | filter:searchText | orderBy:'code' track by $id(list)">
                   <td>{{list.code}}</td>
                   <td ng-click="showDetails(list)">{{list.name}}</td>
-                  <td><button ng-click="showDetails(list)"> Details </button></td>
-                  <td><button ng-click="deleteListing(list)"> Delete </button></td>
+                  <td><button type="button" class="btn btn-info btn-sm" ng-click="showDetails(list)"> Details </button></td>
+                  <td><button type="button" class="btn btn-danger btn-sm" ng-click="deleteListing(list)"> Delete </button></td>
                 </tr>
             </table>
           </div>
@@ -49,7 +49,7 @@
 
             -->
 
-        <br><button ng-click="t=1">Add New Listing</button>
+        <br><button type="button" class="btn btn-success" ng-click="t=1">Add New Listing</button>
 
         </div>
         <div class="col-md-6">
@@ -62,6 +62,9 @@
 
              -->
              <div  ng-repeat="det in detailedInfo">
+               <br>
+               <p>Building: {{det.name}} </p>
+               <p>Code: {{det.code}} </p>
                <p>Address: {{det.address}} <p>
                <p>Coordinates:
                  <br> Latitude: {{det.coordinates.latitude}}
@@ -75,7 +78,8 @@
           <p>Latitude: <input type="text" class="form-control" ng-model="newListing.coordinates.latitude"> </p>
           <p>Longitude: <input type="text" class="form-control" ng-model="newListing.coordinates.longitude"> </p>
           <p>Address: <input type="text" class="form-control" ng-model="newListing.address"> </p>
-          <button ng-click="addListing()">Add Listing</button>
+          <br><br>
+          <button type="button" class="btn btn-success btn-block" ng-click="addListing()">Add Listing</button>
         </div>
         </div>
       </div>
